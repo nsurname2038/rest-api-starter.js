@@ -1,0 +1,12 @@
+# files
+.env
+*.log
+.DS_Store
+
+# folders
+logs
+.vscode
+.zed
+.idea
+api-docs
+node_modules
