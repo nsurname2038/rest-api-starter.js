@@ -7,6 +7,7 @@ import compression from "compression";
 import createError from "http-errors";
 
 import config from "./config/index.config.js";
+import routes from "./routes/index.routes.js";
 
 const app = express();
 
@@ -21,9 +22,7 @@ app
   .use(compression());
 
 app
-  .use("/api", (req, res) => {
-    res.send("Welcome to the API!");
-  })
+  .use("/api", routes)
   .use((req, res, next) => {
     next(createError.NotFound("The page you're looking for doesn't exist."));
   })
