@@ -4,6 +4,7 @@
 .DS_Store
 
 # folders
+docs
 logs
 .vscode
 .zed
