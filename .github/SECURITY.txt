@@ -1,3 +1,0 @@
-Security
-
-If you discover any security issue, please open an issue.
