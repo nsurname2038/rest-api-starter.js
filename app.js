@@ -14,7 +14,7 @@ app
   .use(
     cors({
       origin: config.server.origin,
-    }),
+    })
   )
   .use(helmet())
   .use(express.json())

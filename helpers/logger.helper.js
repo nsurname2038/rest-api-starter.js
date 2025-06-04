@@ -6,14 +6,14 @@ const formats = {
   file: winston.format.combine(
     winston.format.timestamp(),
     winston.format.json(),
-    winston.format.prettyPrint(),
+    winston.format.prettyPrint()
   ),
   console: winston.format.combine(
     winston.format.timestamp(),
     winston.format.printf(({ level, message, timestamp }) => {
       const ts = timestamp.slice(0, 19).replace("T", " ");
       return `${ts} [${level.toUpperCase()}]: ${message}`;
-    }),
+    })
   ),
 };
 
