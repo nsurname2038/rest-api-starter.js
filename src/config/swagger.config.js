@@ -4,7 +4,7 @@ import swaggerJSDoc from "swagger-jsdoc";
 import { SwaggerTheme, SwaggerThemeNameEnum } from "swagger-themes";
 
 const require = createRequire(import.meta.url);
-const packageJSON = require("../package.json");
+const packageJSON = require("../../package.json");
 
 const swaggerSpec = swaggerJSDoc({
   definition: {
