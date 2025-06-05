@@ -1,6 +1,6 @@
 {
   "name": "rest-api-starter.js",
-  "description": "A REST API starter template using Node.js",
+  "description": "",
   "version": "1.0.0",
   "type": "module",
   "private": true,
@@ -39,6 +39,37 @@
     "rules": {
       "no-console": "error"
     }
+  },
+  "nodemonConfig": {
+    "watch": [
+      "./src/*"
+    ],
+    "exec": "node src/server.js",
+    "ext": "js",
+    "ignore": [
+      "node_modules/**/*"
+    ],
+    "verbose": true
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-syntax-import-attributes",
+        {
+          "deprecatedAssertSyntax": true
+        }
+      ]
+    ]
   },
   "commitlint": {
     "extends": [
