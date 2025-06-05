@@ -4,8 +4,12 @@ const env = envSchema({
   dotenv: true,
   schema: {
     type: "object",
-    required: ["PORT", "ORIGIN", "NODE_ENV"],
+    required: ["HOST", "PORT", "ORIGIN", "NODE_ENV"],
     properties: {
+      HOST: {
+        type: "string",
+        default: "localhost",
+      },
       PORT: {
         type: "number",
       },
@@ -24,6 +28,7 @@ const env = envSchema({
  * @typedef {Object} Config
  *
  * @property {Object} server - Server configuration settings.
+ * @property {string} server.host - The hostname for the server.
  * @property {number|string} server.port - The port number for the server to listen on.
  * @property {string} server.origin - The origin URL of the server.
  * @property {string} server.node_env - The environment the server is running in (e.g., development, production).
@@ -37,6 +42,7 @@ const env = envSchema({
  */
 const config = {
   server: {
+    host: env.HOST,
     port: env.PORT,
     origin: env.ORIGIN,
     node_env: env.NODE_ENV,

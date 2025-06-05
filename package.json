@@ -5,7 +5,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node src/app.js",
     "dev": "nodemon",
     "test": "NODE_ENV=development jest",
     "doc": "jsdoc -c jsdoc.config.json",
@@ -44,7 +44,7 @@
     "watch": [
       "./src/*"
     ],
-    "exec": "node src/server.js",
+    "exec": "node src/app.js",
     "ext": "js",
     "ignore": [
       "node_modules/**/*"
