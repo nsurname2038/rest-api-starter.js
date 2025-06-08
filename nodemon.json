@@ -1,0 +1,7 @@
+{
+  "watch": ["./*"],
+  "exec": "node app.js",
+  "ext": "js",
+  "ignore": ["node_modules/**/*"],
+  "verbose": true
+}
