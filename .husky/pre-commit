@@ -1,3 +1,8 @@
+git stash -q --keep-index
 npx prettier --write . &&
 npx eslint . --fix &&
+git add -u
 npm test -- --passWithNoTests
+RESULT=$?
+git stash pop -q
+exit $RESULT
