@@ -4,7 +4,7 @@ const env = envSchema({
   dotenv: true,
   schema: {
     type: "object",
-    required: ["HOST", "PORT", "ORIGIN", "NODE_ENV"],
+    required: ["HOST", "PORT", "ORIGIN", "NODE_ENV", "REDIS_HOST", "REDIS_PORT"],
     properties: {
       HOST: {
         type: "string",
@@ -18,6 +18,12 @@ const env = envSchema({
       },
       NODE_ENV: {
         type: "string",
+      },
+      REDIS_HOST: {
+        type: "string",
+      },
+      REDIS_PORT: {
+        type: "number",
       },
     },
   },
@@ -33,6 +39,11 @@ const env = envSchema({
  * @property {string} server.origin - The origin URL of the server.
  * @property {string} server.node_env - The environment the server is running in (e.g., development, production).
  *
+ * @property {Object} cache - Cache configuration settings.
+ * @property {Object} cache.redis - Redis configuration settings.
+ * @property {string} cache.redis.host - The host address of the Redis server.
+ * @property {number|string} cache.redis.port - The port number of the Redis server.
+ *
  * @property {Object} logger - Logger configuration settings.
  * @property {Object} logger.file - File logging configuration settings.
  * @property {string} logger.file.level - Logging level for file logs (e.g., error, debug).
@@ -46,6 +57,12 @@ const config = {
     port: env.PORT,
     origin: env.ORIGIN,
     node_env: env.NODE_ENV,
+  },
+  cache: {
+    redis: {
+      host: env.REDIS_HOST,
+      port: env.REDIS_PORT,
+    },
   },
   logger: {
     file: {

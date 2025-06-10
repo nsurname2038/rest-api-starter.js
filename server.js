@@ -3,10 +3,14 @@ import app from "./app.js";
 import config from "./config/index.config.js";
 import logger from "./helpers/logger.helper.js";
 
+import redis from "./cache/redis.cache.js";
+
 async function start() {
   try {
-    const port = config.server.port;
     const host = config.server.host;
+    const port = config.server.port;
+
+    await redis.connect();
 
     app.listen(port, () => {
       logger.info(`Server is running at http://${host}:${port}.`);
