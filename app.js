@@ -7,12 +7,9 @@ import compression from "compression";
 import createError from "http-errors";
 
 import config from "./config/index.config.js";
-import logger from "./helpers/logger.helper.js";
 import routes from "./routes/index.routes.js";
 
 const app = express();
-const port = config.server.port;
-const host = config.server.host;
 
 app
   .use(
@@ -42,10 +39,4 @@ app
     next();
   });
 
-try {
-  app.listen(port, host, () => {
-    logger.info(`Server is running at http://${host}:${port}.`);
-  });
-} catch (err) {
-  logger.error(err);
-}
+export default app;
