@@ -4,8 +4,7 @@ import swaggerUI from "swagger-ui-express";
 import swaggerJSDoc from "swagger-jsdoc";
 import { SwaggerTheme, SwaggerThemeNameEnum } from "swagger-themes";
 
-const require = createRequire(import.meta.url);
-const packageJSON = require("../package.json");
+import packageJSON from "../package.json" assert { type: "json" };
 
 const swaggerSpec = swaggerJSDoc({
   definition: {
