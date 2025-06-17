@@ -3,7 +3,7 @@ import app from "./app.js";
 import config from "./config/index.config.js";
 import logger from "./helpers/logger.helper.js";
 
-import postgres from "./database/postgres.database.js";
+import database from "./database/index.database.js";
 import redis from "./cache/redis.cache.js";
 
 async function start() {
@@ -12,7 +12,7 @@ async function start() {
     const port = config.server.port;
 
     await redis.connect();
-    await postgres.connect();
+    await database.connect();
 
     app.listen(port, () => {
       logger.info(`Server is running at http://${host}:${port}.`);
